@@ -1,25 +1,22 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-using System;
+﻿using System;
 using Microsoft.Bot.Builder;
 
-namespace EchoBot
+namespace SimpleBot
 {
     /// <summary>
     /// This class is created as a Singleton and passed into the IBot-derived constructor.
-    ///  - See <see cref="EchoWithCounterBot"/> constructor for how that is injected.
+    ///  - See <see cref="SimpleWithCounterBot"/> constructor for how that is injected.
     ///  - See the Startup.cs file for more details on creating the Singleton that gets
     ///    injected into the constructor.
     /// </summary>
-    public class EchoBotAccessors
+    public class SimpleBotAccessors
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EchoBotAccessors"/> class.
+        /// Initializes a new instance of the <see cref="SimpleBotAccessors"/> class.
         /// Contains the <see cref="ConversationState"/> and associated <see cref="IStatePropertyAccessor{T}"/>.
         /// </summary>
         /// <param name="conversationState">The state object that stores the counter.</param>
-        public EchoBotAccessors(ConversationState conversationState)
+        public SimpleBotAccessors(ConversationState conversationState)
         {
             ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
         }
@@ -29,7 +26,7 @@ namespace EchoBot
         /// </summary>
         /// <remarks>Accessors require a unique name.</remarks>
         /// <value>The accessor name for the counter accessor.</value>
-        public static string CounterStateName { get; } = $"{nameof(EchoBotAccessors)}.CounterState";
+        public static string CounterStateName { get; } = $"{nameof(SimpleBotAccessors)}.CounterState";
 
         /// <summary>
         /// Gets or sets the <see cref="IStatePropertyAccessor{T}"/> for CounterState.
